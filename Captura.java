@@ -36,7 +36,7 @@ public class Captura {
 
              while (!esValido) {   
                 try {  
-                  promedios[i] = JOptionPane.showInputDialog("Ingresa el promedio de la posición " + i + "(incluye al menos una posición decimal ej. 9.0 o 7.5): ");
+                  promedios[i] = Float.parseFloat(JOptionPane.showInputDialog("Ingresa el promedio de la posición " + i + "(incluye al menos una posición decimal ej. 9.0 o 7.5): "));
                   esValido = true;
                 } catch (InputMismatchException e) {
                     JOptionPane.showMessageDialog(null, "Ingresa un número decimal válido.\n\n");
@@ -47,7 +47,7 @@ public class Captura {
 
              while (!esValido) {   
                 try {  
-                  status[i] = JOptionPane.showInputDialog("Ingresa el status de la posición " + i + "(1 para activo, 0 para inactivo): ");
+                  status[i] = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el status de la posición " + i + "(1 para activo, 0 para inactivo): "));
                   esValido = true;
                 } catch (InputMismatchException e) {
                     JOptionPane.showMessageDialog(null, "Ingresa un status válido.\n\n");
