@@ -9,6 +9,18 @@ public class Menu {
       float[] promedios = new float[30];
       int[] status = new int[30];
       
+      nombres[0] = "Jesus";
+      nombres[1] = "Fernando";
+      nombres[2] = "Luis";
+      
+      promedios[0] = 9.5f;
+      promedios[1] = 10.0f;
+      promedios[2] = 9.0f;
+      
+      status[0] = 1;
+      status[1] = 1;
+      status[2] = 1;
+      
       JOptionPane.showMessageDialog(null, "Bienvenido al programa de gestión de alumnos.\n\n");
       
       while (bandera) {
@@ -26,12 +38,16 @@ public class Menu {
                      Dos.Modificar(nombres, promedios, status);
                      bandera = false;
                      break; 
-            case 3 : Borrado Tres = new Borrado();
-                     Tres.Borrar(nombres, promedios, status);
+            case 3 : int opcionBorrado = Integer.parseInt(JOptionPane.showInputDialog("Elige una de las siguientes opciones:\n\n1.- Borrado físico.\n2. Borrado lógico\n3. Regresar."));
+                     
+                     Borrado Tres = new Borrado();
+                     Tres.Borrar(nombres, promedios, status, opcionBorrado);
                      bandera = false;
                      break;
-            case 4 : Impresion Cuatro = new Impresion();
-                     Cuatro.Imprimir(nombres, promedios, status);
+            case 4 : int opcionImpresion = Integer.parseInt(JOptionPane.showInputDialog("Elige una de las siguientes opciones:\n\n1.- Imprimir uno.\n2. Imprimir todos\n3. Regresar."));
+            
+                     Impresion Cuatro = new Impresion();
+                     Cuatro.Imprimir(nombres, promedios, status, opcionImpresion);
                      bandera = false;
                      break;
             case 5 : JOptionPane.showMessageDialog(null, "Programa finalizado con éxito.\n¡Hasta pronto!");

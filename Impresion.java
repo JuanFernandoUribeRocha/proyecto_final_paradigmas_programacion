@@ -17,18 +17,17 @@ public class Impresion {
                         if(nombres[i] == nombreEstudiante){
                            JOptionPane.showMessageDialog(null, 
                               "Nombre: " + nombres[i] + "," +
-                              "Promedio: " + promedios[i] + "," +
-                              "Status: " + status[i] + ".");
+                              "\nPromedio: " + promedios[i] + "," +
+                              "\nStatus: " + status[i] + ".");
                         }
                      }
                   } else if (opcionImpresion == 2){
                         for (int i=0; i < nombres.length; i++){
-                           if (nombres[i] != "") {
+                           if (nombres[i] != null) {
                               JOptionPane.showMessageDialog(null, 
                                  "Nombre: " + nombres[i] + "," +
-                                 "Promedio: " + promedios[i] + "," +
-                                 "Status: " + status[i] + "." +
-                                 "-----------------------------\n\n");
+                                 "\nPromedio: " + promedios[i] + "," +
+                                 "\nStatus: " + status[i] + ".");
                            }
                         }
                   } else if (opcionImpresion == 3){
@@ -43,7 +42,7 @@ public class Impresion {
           
           String otroMas = JOptionPane.showInputDialog("¿Deseas imprimir otro registro? (Si/No)");
           otroMas= otroMas.toUpperCase().trim();
-          bandera = (otroMas == "SI")?true:false;
+          bandera = (otroMas.equals("SI"))?true:false;
        }
      
      } 

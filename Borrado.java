@@ -41,9 +41,10 @@ public class Borrado {
           
           String otroMas = JOptionPane.showInputDialog("¿Deseas eliminar algún otro registro? (Si/No)");
           otroMas= otroMas.toUpperCase().trim();
-          bandera = (otroMas == "SI")?true:false;
+          bandera = (otroMas.equals("SI"))?true:false;
        }
      
      } 
 }
+
 

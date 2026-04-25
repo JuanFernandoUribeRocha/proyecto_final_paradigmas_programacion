@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.InputMismatchException;
 
 public class Modificacion {
    public static void Modificar(String[] nombres, float[] promedios, int[] status){
@@ -6,6 +7,7 @@ public class Modificacion {
       boolean banderaModificacion = true;
       boolean esValido = false;
       int veces = 0;
+      String nombreIngresado = "";
 
       while (banderaModificacion) {
       
@@ -25,7 +27,7 @@ public class Modificacion {
              while (!esValido) {   
                 try {  
                   nombreIngresado = JOptionPane.showInputDialog("Ingresa el nombre del alumno que quieres modificar: ");
-                  nombres[i] = nombres[i].toUpperCase().trim();
+                  nombres[i] = nombreIngresado.toUpperCase().trim();
                   esValido = true;
                 } catch (InputMismatchException e) {
                     JOptionPane.showMessageDialog(null, "Ingresa un una cadena de texto\n\n");
@@ -37,7 +39,7 @@ public class Modificacion {
              int posicion = -1;
              
              while (posicion == -1) {
-                for (i=0; i < nombre.lenght ; i++){
+                for (i=0; i < nombres.length ; i++){
                   if (nombreIngresado == nombres[i]){
                      posicion = i;
                      break;
@@ -62,7 +64,7 @@ public class Modificacion {
               case 1 : while (!esValido) { 
                         try {
                            nombres[posicion] = JOptionPane.showInputDialog("Ingresa el nuevo nombre: ");
-                           nombres[posicion] = nombre[posicion].toUpperCase().trim();
+                           nombres[posicion] = nombres[posicion].toUpperCase().trim();
                            esValido = true;
                           } catch (InputMismatchException e) {
                               JOptionPane.showMessageDialog(null, "Ingresa un una cadena de texto\n\n");
@@ -72,7 +74,7 @@ public class Modificacion {
                        break; 
               case 2 : while (!esValido) {
                           try {
-                           promedios[posicion] = JOptionPane.showInputDialog("Ingresa el nuevo promedio: ");
+                           promedios[posicion] = Float.parseFloat(JOptionPane.showInputDialog("Ingresa el nuevo promedio: "));
                            esValido = true;
                           } catch (InputMismatchException e) {
                               JOptionPane.showMessageDialog(null, "Ingresa un numero décimal válido.\n\n");
@@ -80,8 +82,7 @@ public class Modificacion {
                        }
                        esValido = false;
                        break;
-              case 3 : Menu menu = new Menu();
-                       menu.main();
+              case 3 : 
                        banderaModificacion = false;
                        break;
               default : JOptionPane.showMessageDialog(null, "Opción inválida");    
@@ -94,10 +95,9 @@ public class Modificacion {
            
            otroMas = otroMas.toUpperCase().trim();
            
-           if (otroMas == "NO") {
-               banderaCaptura = false;
-
-       } 
+           if (otroMas.equals("NO")) {
+            banderaModificacion = false;
+            }   
 
    }
 }
