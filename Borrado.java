@@ -8,7 +8,7 @@ public class Borrado {
      String seBorrara = JOptionPane.showInputDialog("¿Deseas continuar? (Si/No):");
      seBorrara = seBorrara.toUpperCase().trim();
        
-     boolean bandera = (seBorrara == "SI")?true:false;
+     boolean bandera = (seBorrara != null && seBorrara.equals("SI"))?true:false;
      
        while (bandera) {         
          try {  
@@ -17,23 +17,22 @@ public class Borrado {
                   
                   if (opcionBorrado == 1) {
                      for (int i=0; i < nombres.length; i++){
-                        if(nombres[i] == nombreEstudiante){
+                        if(nombres[i] != null && nombres[i].equals(nombreEstudiante)){
                            nombres[i] = "";
                            promedios[i] = 0;
+                           JOptionPane.showMessageDialog(null, "Se ha borradó físicamente al alumno " + nombreEstudiante);
                            break;
                         }
                      }
                   } else if (opcionBorrado == 2){
                         for (int i=0; i < nombres.length; i++){
-                           if(nombres[i] == nombreEstudiante){
+                           if(nombres[i] != null && nombres[i].equals(nombreEstudiante)){
                               status[i] = 0;
+                              JOptionPane.showMessageDialog(null, "Se ha borradó logicamente al alumno " + nombres[i]);
                               break;
                            }
                         }
-                  } else if (opcionBorrado == 3){
-                        bandera = false;
-                        break;
-                  }
+                  } 
                   bandera = false;
           } catch (InputMismatchException e) {
                 JOptionPane.showMessageDialog(null, "Ingresa un una cadena de texto\n\n");

@@ -6,6 +6,7 @@ public class Captura {
       
       boolean banderaCaptura = true;
       boolean esValido = false;
+      boolean flag = true;
       int veces = 0;
       int contador = 3;
       
@@ -18,7 +19,7 @@ public class Captura {
                veces = veces + contador;
                esValido = true;
                
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
                JOptionPane.showMessageDialog(null, "Ingresa un numero entero válido.\n\n");
             }
          }   
@@ -30,12 +31,29 @@ public class Captura {
                 for (int i = contador; i < veces; i++) { 
                      nombres[i] = JOptionPane.showInputDialog("Ingresa el nombre de la posición " + i + ": ");
                      nombres[i] = nombres[i].toUpperCase().trim();
-                     promedios[i] = Float.parseFloat(JOptionPane.showInputDialog("Ingresa el promedio de la posición " + i + "(incluye al menos una posición decimal ej. 9.0 o 7.5): "));
-                     status[i] = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el status de la posición " + i + "(1 para activo, 0 para inactivo): "));
+                     while (flag) {     
+                        promedios[i] = Float.parseFloat(JOptionPane.showInputDialog("Ingresa el promedio de la posición " + i + "(incluye al menos una posición decimal ej. 9.0 o 7.5): "));
+                        flag = false;
+                        if (promedios[i] < 0.0 || promedios[i] > 10.0) {
+                           JOptionPane.showMessageDialog(null, "Promedio inválido, solo entre 0.0 y 10.0\n\n");
+                           flag = true;
+
+                        }
+                     }
+                     flag= true;
+                     while (flag) {   
+                        status[i] = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el status de la posición " + i + "(1 para activo, 0 para inactivo): "));
+                        flag = false;
+                        if (status[i] != 0 && status[i] != 1) {
+                           JOptionPane.showMessageDialog(null, "Status inválido, solo 0 o 1.\n\n");
+                           flag = true;
+                        }
+                     }
+                     flag = true;
                      contador++;
                 }
                   esValido = true;
-                } catch (InputMismatchException e) {
+                } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Ingresa un valor válido\n\n");
                 }
              }
