@@ -27,7 +27,13 @@ public class Menu {
       while (bandera) {
          try {
             if (opcion == 0){   
-               opcion = Integer.parseInt(JOptionPane.showInputDialog("    ***MENU***    \n1. Capturar\n2. Modificación\n3. Borrar\n4. Imprimir\n5. Finalizar el programa\n\nElige una de las opciones disponibles: "));
+               opcion = Integer.parseInt(JOptionPane.showInputDialog(
+                  "    ***MENU***    " +
+                  "\n1. Capturar\n" +
+                  "2. Modificación\n" +
+                  "3. Borrar\n" +
+                  "4. Imprimir\n" +
+                  "5. Finalizar el programa\n\nElige una de las opciones disponibles: "));
             } else {
                opcion = Integer.parseInt(JOptionPane.showInputDialog("\nIntentalo de nuevo con una opción válida entre 1 y 5: "));   
             }
