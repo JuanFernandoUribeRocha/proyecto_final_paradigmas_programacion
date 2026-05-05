@@ -1,3 +1,9 @@
+// MENU
+// Nombres: Flores Hernandez Jesus Javier,Uribe Rocha Juan Fernando,Palacios Sanchez Luis Fernando.
+// Fecha: 30/04/2026
+// Grupo: 2-2 LI
+// Descripción: Menú principal del sistema de gestión de alumnos.
+//              Coordina las operaciones de captura, modificación, borrado e impresión.
 import javax.swing.*;
 import java.util.InputMismatchException;
 
