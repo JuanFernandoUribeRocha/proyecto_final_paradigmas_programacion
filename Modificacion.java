@@ -125,7 +125,7 @@ public class Modificacion {
                            } else {
                               esValido = true;
                            }
-                         // Validacionn decimal .0 a .9
+                         // Valida que la entrada sea un float
                         } catch (NumberFormatException e) {
                            JOptionPane.showMessageDialog(null, "Ingresa un número decimal válido.\n\n");
                         } catch (NullPointerException e) {
